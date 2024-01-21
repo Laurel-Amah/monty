@@ -33,7 +33,20 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct args - use to hold var
+ * @stream: file stream for connect to a file
+ * @lineptr: line pointer
+ */
+typedef struct args
+{
+	FILE *stream;
+	char *lineptr;
+} argt;
 
+extern argt *arguments;
 void val_arg(int ac);
+void init_arg(void);
+void failed_malloc(void);
 
 #endif
