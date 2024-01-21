@@ -1,8 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -48,5 +52,7 @@ extern argt *arguments;
 void val_arg(int ac);
 void init_arg(void);
 void failed_malloc(void);
+void stream_failed(char *file_name);
+void getting_stream(char *file_name);
 
 #endif
