@@ -21,22 +21,17 @@ void f_push(stack_t **head, unsigned int count)
 				flag = 1;
 		}
 		if (flag == 1)
-		{
-			fprintf(stderr, "L%d: usage: push interger\n", count);
+		{ fprintf(stderr, "L%d: usage: push interger\n", count);
 			fclose(Bus.stream);
 			free(Bus.holder);
 			stack_free(*head);
-			exit(EXIT_FAILURE);
-		}
-	}
+			exit(EXIT_FAILURE); }}
 	else
-	{
-		fprintf(stderr, "L%d: usage: push interger\n", count);
+	{ fprintf(stderr, "L%d: usage: push interger\n", count);
 		fclose(Bus.stream);
 		free(Bus.holder);
 		stack_free(*head);
-		exit(EXIT_FAILURE);
-	}
+		exit(EXIT_FAILURE); }
 	a = atoi(Bus.Arg);
 	if (Bus.line == 0)
 	{

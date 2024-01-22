@@ -55,6 +55,8 @@ typedef struct Bus_s
 	int line;
 } Bus_t;
 extern Bus_t Bus;
+
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 void f_pchar(stack_t **heads, unsigned int count);
 void f_pall(stack_t **head, unsigned int stack_counter);
 void f_push(stack_t **head, unsigned int count);
