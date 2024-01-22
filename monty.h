@@ -1,6 +1,8 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <ctype.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -38,21 +40,43 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
- * struct args - use to hold var
- * @stream: file stream for connect to a file
- * @lineptr: line pointer
+ * struct Bus_s - structure for holding
+ * different data types
+ * @Arg: argument to be printed
+ * @stream: place holder for file
+ * @holder: content holder
+ * @line: line number
  */
-typedef struct args
+typedef struct Bus_s
 {
+	char *Arg;
 	FILE *stream;
-	char *lineptr;
-} argt;
-
-extern argt *arguments;
-void val_arg(int ac);
-void init_arg(void);
-void failed_malloc(void);
-void stream_failed(char *file_name);
-void getting_stream(char *file_name);
+	char *holder;
+	int line;
+} Bus_t;
+extern Bus_t Bus;
+void f_pchar(stack_t **heads, unsigned int count);
+void f_pall(stack_t **head, unsigned int stack_counter);
+void f_push(stack_t **head, unsigned int count);
+void stack_free(stack_t *h);
+void add_node(stack_t **h, int u);
+void add_queue(stack_t **h, int a);
+void stack_free(stack_t *h);
+void f_div(stack_t **head, unsigned int counter);
+void f_mod(stack_t **heads, unsigned int count);
+void f_mul(stack_t **heads, unsigned int count);
+void f_pstr(stack_t **heads, unsigned int count);
+void f_nop(stack_t **heads, unsigned int count);
+void f_queue(stack_t **heads, unsigned int count);
+void f_rotl(stack_t **heads,  __attribute__((unused)) unsigned int count);
+void f_rotr(stack_t **heads, __attribute__((unused)) unsigned int count);
+void f_stack(stack_t **heads, unsigned int count);
+void f_sub(stack_t **heads, unsigned int count);
+void f_swap(stack_t **heads, unsigned int count);
+void f_pint(stack_t **heads, unsigned int count);
+void f_pop(stack_t **heads, unsigned int count);
+void f_add(stack_t **head, unsigned int count);
+void f_add(stack_t **head, unsigned int count);
+void f_pall(stack_t **head, unsigned int stack_counter);
 
 #endif
